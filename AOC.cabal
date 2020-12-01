@@ -1,0 +1,21 @@
+name:                AOC
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/stasiaks/AOC#readme
+license:             MIT
+license-file:        LICENSE
+author:              Sebastian Stasiak
+maintainer:          12955338+stasiaks@users.noreply.github.com
+copyright:           (c) Sebastian Stasiak 2020
+category:            Game
+build-type:          Simple
+cabal-version:       >=1.10
+extra-source-files:  README.md
+
+executable Day1
+  hs-source-dirs:      src
+  main-is:             Day1.hs
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+
