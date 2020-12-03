@@ -19,11 +19,22 @@ main = do
       grid = fromListVector (Z :. yDim :. xDim :: DIM2) $ concat input
   putStrLn "Part 1:"
   print $ part1 grid
+  putStrLn "Part 2:"
+  print $ part2 grid
 
 part1 :: Grid -> Integer
 part1 grid = countTreeHits grid (ix2 0 0) f
     where (Z :. sizeY :. sizeX) = extent grid
           f = nextCoordinatesForWidth sizeY sizeX 1 3
+
+part2 :: Grid -> Integer
+part2 grid = Prelude.product $ Prelude.map (countTreeHits grid (ix2 0 0)) [f1, f2, f3, f4, f5]
+    where (Z :. sizeY :. sizeX) = extent grid
+          f1 = nextCoordinatesForWidth sizeY sizeX 1 1
+          f2 = nextCoordinatesForWidth sizeY sizeX 1 3
+          f3 = nextCoordinatesForWidth sizeY sizeX 1 5
+          f4 = nextCoordinatesForWidth sizeY sizeX 1 7
+          f5 = nextCoordinatesForWidth sizeY sizeX 2 1
 
 countTreeHitsT :: Grid -> DIM2 -> (DIM2 -> Maybe DIM2) -> Integer -> Integer
 countTreeHitsT g c f a = case f c of
