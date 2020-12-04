@@ -33,3 +33,11 @@ executable Day3
   default-language:    Haskell2010
   build-depends:       base >= 4.7 && < 5
                      , repa
+
+executable Day4
+  hs-source-dirs:      src
+  main-is:             Day4.hs
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+                     , split
+
